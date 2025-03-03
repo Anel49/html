@@ -30,6 +30,7 @@ p {
     font-size: 14px;
 }
 footer {
+    padding-top: 16px;
     text-align: center;
     color: #646464;
 }
