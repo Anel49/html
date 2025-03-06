@@ -6,6 +6,7 @@
         <link rel="icon" type="icon" href="imgs/ss-logo.ico">
         <link rel="stylesheet" href="shopping_cart.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="shopping-cart.js"></script>
     </head>
     <body>
         <h1>Checkout Cart</h1>
@@ -20,8 +21,10 @@
                         <th>Total Cost</th>
                         <th>Remove</th>
                     </tr>
-                    <tr>
-                        <td><img src="imgs/products/blue-shirtfront.png" 
+                    <tbody id="cartBody"></tbody>
+
+                    <!-- <tr>
+                        <td><img src="imgs/products/navy-shirtfront.png" 
                              alt="Navy Shirt"></td>
                         <td>Shirt - Navy XL</td>
                         <td>$27.99</td>
@@ -65,14 +68,14 @@
                         <td>$55.98</td>
                         <td><input type="submit" value="Remove"></td>
                     </tr>
-                    <section>
+                    <section> -->
                         <tr class="total-section">
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td>Subtotal:</td>
-                            <td>$251.91</td>
+                            <td id="subtotal">$251.91</td>
                         </tr>
                         <tr class="total-section">
                             <td></td>
@@ -80,7 +83,7 @@
                             <td></td>
                             <td></td>
                             <td>Tax:</td>
-                            <td>$15.11</td>
+                            <td id="tax">$15.11</td>
                         </tr>
                         <tr class="total-section">
                             <td></td>
@@ -88,7 +91,7 @@
                             <td></td>
                             <td></td>
                             <td>Total:</td>
-                            <td>$267.02</td>
+                            <td id="total">$267.02</td>
                         </tr>
                     </section>
                 </table>
