@@ -1,7 +1,8 @@
 
+// variables for cart totals
 let subtotal = 0, taxed = 0, total = 0;
-let form = document.getElementById("add-to-cart-form");
-let products = [
+// array of dictionary objects with full size name, size letter, and price
+let sizePrices = [
     {
         size: "Extra Small",
         letter: "XS",
@@ -34,13 +35,26 @@ let products = [
     }
 ]
 
+// prevents page from refreshing after clicking OK
 function prevReload(e){
     e.preventDefault();
 }
-form.addEventListener('submit', prevReload);
+document.getElementById("add-to-cart-form").addEventListener('submit', prevReload);
 
-function addItemToCart(){
-    subtotal += 27.99;
+// grabs the selected size and finds its price
+function sizeSelection(size){
+    let price = 0;
+    for (let i = 0; i < sizePrices.length; i++){
+        if (sizePrices[i]["letter"] == size){
+            price = sizePrices[i]["price"];
+        }
+    }
+    addItemToCart(price);
+}
+
+// adds the price of the product to the cart total
+function addItemToCart(price){
+    subtotal += price;
     taxed = Number(subtotal * 1.06);
     alert("Cart total: $" + taxed.toFixed(2));
 }

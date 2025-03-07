@@ -61,7 +61,7 @@
                     </tr>
                 </table>               
 
-                <select class="select middle field">
+                <select id="size-selection" class="select middle field">
                     <option value="XS">XS</option>
                     <option value="S">S</option>
                     <option value="M">M</option>
@@ -80,7 +80,8 @@
                     <option value="White">White</option>
                 </select>
 
-                <form id="add-to-cart-form" onclick="addItemToCart()">                    
+                <form id="add-to-cart-form" 
+                    onclick="sizeSelection(document.getElementById('size-selection').value)">                    
                     <input id="add-to-cart-btn" class="middle field" type="submit" 
                     value="Add to Cart">
                 </form>
