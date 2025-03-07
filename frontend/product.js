@@ -6,32 +6,38 @@ let sizePrices = [
     {
         size: "Extra Small",
         letter: "XS",
-        price: 19.99
+        price: 19.99,
+        availability: "In Stock"
     },
     {
         size: "Small",
         letter: "S",
-        price: 21.99
+        price: 21.99,
+        availability: "In Stock"
     },
     {
         size: "Medium",
         letter: "M",
         price: 23.99,
+        availability: "In Stock"
     },
     {
         size: "Large",
         letter: "L",
-        price: 25.99
+        price: 25.99,
+        availability: "Out of Stock"
     },
     {
         size: "Extra Large",
         letter: "XL",
-        price: 27.99
+        price: 27.99,
+        availability: "Out of Stock"
     },
     {
         size: "Extra Extra Large",
         letter: "XXL",
-        price: 29.99
+        price: 29.99,
+        availability: "In Stock"
     }
 ]
 
@@ -64,6 +70,27 @@ function addItemToCart(price, productSize){
 
 // creates the size dropdown menu based on sizePrices dictionary
 function addSelectOptions(){
+
+    // sizes and availability table
+    const sizes = document.getElementById("sizes-table");
+    sizes.innerHTML = 
+        `
+        <tr>
+            <th>Size</th>
+            <th>Availability</th>
+        </tr>
+        `
+    for (let i = 0; i < sizePrices.length; i++){
+        sizes.innerHTML += 
+            `
+            <tr>
+                <td>${sizePrices[i]["letter"]}</td>
+                <td>${sizePrices[i]["availability"]}</td>
+            <tr>
+            `
+    }
+
+    // select box
     const selects = document.getElementById("selects");
     selects.innerHTML = "";
     for (let i = 0; i < sizePrices.length; i++){
