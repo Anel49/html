@@ -35,6 +35,8 @@ let sizePrices = [
     }
 ]
 
+addSelectOptions();
+
 // prevents page from refreshing after clicking OK
 function prevReload(e){
     e.preventDefault();
@@ -44,17 +46,35 @@ document.getElementById("add-to-cart-form").addEventListener('submit', prevReloa
 // grabs the selected size and finds its price
 function sizeSelection(size){
     let price = 0;
+    let productSize = "";
     for (let i = 0; i < sizePrices.length; i++){
-        if (sizePrices[i]["letter"] == size){
-            price = sizePrices[i]["price"];
+        if (sizePrices[i]['letter'] == size){
+            price = sizePrices[i]['price'];
+            productSize = sizePrices[i]['letter'];
         }
     }
-    addItemToCart(price);
+    addItemToCart(price, productSize);
 }
 
 // adds the price of the product to the cart total
-function addItemToCart(price){
+function addItemToCart(price, productSize){
     subtotal += price;
     taxed = Number(subtotal * 1.06);
-    alert("Cart total: $" + taxed.toFixed(2));
+    alert(productSize + " Shirt Added (Costs $" + price + ") - Total $" + taxed.toFixed(2));
+}
+
+// creates the size dropdown menu based on sizePrices dictionary
+function addSelectOptions(){
+    const selects = document.getElementById("selects");
+    selects.innerHTML = "";
+    for (let i = 0; i < sizePrices.length; i++){
+        selects.innerHTML +=
+            `
+            <option value="${sizePrices[i]['letter']}">${sizePrices[i]['letter']}</option>
+            `
+    }
+    selects.innerHTML +=
+        `
+        </select>
+        `
 }

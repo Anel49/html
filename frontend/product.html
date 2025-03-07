@@ -52,23 +52,19 @@
                     <tr>
                         <td>XL</td>
                         <td>$27.99</td>
-                        <td>In Stock</td>
+                        <td>Out of Stock</td>
                     </tr>
                     <tr>
                         <td>XXL</td>
                         <td>$29.99</td>
                         <td>In Stock</td>
                     </tr>
-                </table>               
+                </table>  
 
-                <select id="size-selection" class="select middle field">
-                    <option value="XS">XS</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                    <option value="XXL">XXL</option>
+                <select id="selects" class="select middle field">
                 </select>
+                
+                <!-- color selection I may add later
                 <select class="select middle field">
                     <option value="Black">Black</option>
                     <option value="Blue">Blue</option>
@@ -79,9 +75,10 @@
                     <option value="Tan">Tan</option>
                     <option value="White">White</option>
                 </select>
+                 -->
 
                 <form id="add-to-cart-form" 
-                    onclick="sizeSelection(document.getElementById('size-selection').value)">                    
+                    onclick="sizeSelection(document.getElementById('selects').value)">                    
                     <input id="add-to-cart-btn" class="middle field" type="submit" 
                     value="Add to Cart">
                 </form>
