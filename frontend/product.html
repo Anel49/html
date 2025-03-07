@@ -5,6 +5,7 @@
         <title>Shirt Shopper</title>
         <link rel="icon" type="icon" href="imgs/ss-logo.ico">
         <link rel="stylesheet" href="styles.css">
+        <script src="product.js" async></script>
     </head>
     <body>
         <h1>Shirt</h1>
@@ -20,35 +21,70 @@
                     potenti. Donect non nisi id nisi pretium tincidunt.
                 </p>
             </section>
-
-            <form action="">
-                <input id="add-to-cart-btn" type="submit" value="Add to Cart">
-            </form>
-
             <h2>Available Sizes</h2>
             <section>
                 <table>
                     <tr>
                         <th>Size</th>
+                        <th>Price</th>
                         <th>Availability</th>
                     </tr>
                     <tr>
-                        <td>Small</td>
+                        <td>XS</td>
+                        <td>$19.99</td>
                         <td>In Stock</td>
                     </tr>
                     <tr>
-                        <td>Medium</td>
+                        <td>S</td>
+                        <td>$21.99</td>
                         <td>In Stock</td>
                     </tr>
                     <tr>
-                        <td>Large</td>
+                        <td>M</td>
+                        <td>$23.99</td>
+                        <td>In Stock</td>
+                    </tr>
+                    <tr>
+                        <td>L</td>
+                        <td>$25.99</td>
                         <td>Out of Stock</td>
                     </tr>
                     <tr>
-                        <td>Extra Large</td>
+                        <td>XL</td>
+                        <td>$27.99</td>
                         <td>In Stock</td>
                     </tr>
-                </table>
+                    <tr>
+                        <td>XXL</td>
+                        <td>$29.99</td>
+                        <td>In Stock</td>
+                    </tr>
+                </table>               
+
+                <select class="select middle field">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                </select>
+                <select class="select middle field">
+                    <option value="Black">Black</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Gray">Gray</option>
+                    <option value="Maroon">Maroon</option>
+                    <option value="Navy">Navy</option>
+                    <option value="Red">Red</option>
+                    <option value="Tan">Tan</option>
+                    <option value="White">White</option>
+                </select>
+
+                <form id="add-to-cart-form" onclick="addItemToCart()">                    
+                    <input id="add-to-cart-btn" class="middle field" type="submit" 
+                    value="Add to Cart">
+                </form>
+                
             </section>        
         </div>        
         <footer>&copy; 2025 Shirt Shopper Corp.</footer>

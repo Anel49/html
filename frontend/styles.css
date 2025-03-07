@@ -17,6 +17,8 @@ h1 {
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 18px;
+    table-layout: fixed;
 }
 th {
     background-color: #F0F0F0;
@@ -35,13 +37,23 @@ footer {
     text-align: center;
     color: #646464;
 }
+.middle {
+    display: block;
+    margin: 0 auto;
+}
+.field {
+    border: none;
+    padding: 9px;
+    border-radius: 5px;
+}
 #add-to-cart-btn {
     background-color: #007AFE;
     color: white;
+    width: 100px;
+}
+.select {
+    background-color: #F0F0F0;
     padding: 9px;
     border-radius: 5px;
-    width: 100px;
-    border: none;
-    display: block;
-    margin: 0 auto;
+    margin-bottom: 18px;
 }
