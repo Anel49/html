@@ -37,11 +37,10 @@ let sizePrices = [
 
 addSelectOptions();
 
-// prevents page from refreshing after clicking OK
-function prevReload(e){
+function preventPageReload(e){
     e.preventDefault();
 }
-document.getElementById("add-to-cart-form").addEventListener('submit', prevReload);
+document.getElementById("add-to-cart-btn").addEventListener(this, preventPageReload);
 
 // grabs the selected size and finds its price
 function sizeSelection(size){
@@ -73,8 +72,16 @@ function addSelectOptions(){
             <option value="${sizePrices[i]['letter']}">${sizePrices[i]['letter']}</option>
             `
     }
-    selects.innerHTML +=
-        `
-        </select>
-        `
+}
+
+// updates the h2 for the item price upon select change
+function updatePriceText(){
+    let chosenSize = document.getElementById("selects").value;
+    let price = 0;
+    for (let i = 0; i < sizePrices.length; i++){
+        if (sizePrices[i]["letter"] == chosenSize){
+            price = sizePrices[i]["price"];
+        }
+    }
+    document.getElementById("price-txt").innerHTML = "$" + price;
 }

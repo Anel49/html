@@ -8,12 +8,17 @@
         <script src="product.js" async></script>
     </head>
     <body>
+
+    <!-- indending to put a cart up here somewhere -->
+    <nav></nav>
+
         <h1>Shirt</h1>
         <div>            
             <img src="imgs/products/navy-shirtfront.png" 
                  alt="Image of a blue shirt" id="shirtimg" width="400" 
                  height="400">
             <section>
+                <h2 id="price-txt">$19.99</h2>
                 <h2>Description</h2>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -26,42 +31,36 @@
                 <table>
                     <tr>
                         <th>Size</th>
-                        <th>Price</th>
                         <th>Availability</th>
                     </tr>
                     <tr>
                         <td>XS</td>
-                        <td>$19.99</td>
                         <td>In Stock</td>
                     </tr>
                     <tr>
                         <td>S</td>
-                        <td>$21.99</td>
                         <td>In Stock</td>
                     </tr>
                     <tr>
                         <td>M</td>
-                        <td>$23.99</td>
                         <td>In Stock</td>
                     </tr>
                     <tr>
                         <td>L</td>
-                        <td>$25.99</td>
                         <td>Out of Stock</td>
                     </tr>
                     <tr>
                         <td>XL</td>
-                        <td>$27.99</td>
                         <td>Out of Stock</td>
                     </tr>
                     <tr>
                         <td>XXL</td>
-                        <td>$29.99</td>
                         <td>In Stock</td>
                     </tr>
                 </table>  
 
-                <select id="selects" class="select middle field">
+                <select id="selects" class="select middle field"
+                    onchange="updatePriceText()">
                 </select>
                 
                 <!-- color selection I may add later
@@ -77,10 +76,12 @@
                 </select>
                  -->
 
-                <form id="add-to-cart-form" 
-                    onclick="sizeSelection(document.getElementById('selects').value)">                    
-                    <input id="add-to-cart-btn" class="middle field" type="submit" 
-                    value="Add to Cart">
+                <form id="add-to-cart-form">
+                    <button id="add-to-cart-btn" class="middle field" 
+                        type="button"
+                        onclick=
+                        "sizeSelection(document.getElementById('selects').value)">
+                        Add to Cart</button>
                 </form>
                 
             </section>        
