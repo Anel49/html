@@ -42,6 +42,8 @@ let sizePrices = [
     }
 ]
 addSelectOptions();
+populateCartTable();
+updateCartArr();
 
 function preventPageReload(e){
     e.preventDefault();
@@ -52,6 +54,7 @@ document.getElementById("add-to-cart-btn").addEventListener(
 // grabs localStorage strings and converts them to dict objects for 
 // easier operations
 function updateCartArr(){
+    subtotal = 0;
     shoppingCartItems = [];
     for (let i = 0; i < localStorage.length; i++){
     
@@ -70,6 +73,7 @@ function updateCartArr(){
 
         subtotal += shoppingCartItems[i]['price'];
     }
+    populateCartTable();
     console.log(shoppingCartItems);
 }
 
@@ -89,16 +93,17 @@ function sizeSelection(selectedSize){
             updateCartArr();
         }
     }
+    populateCartTable();
     addItemToCart(price, productSize);
 }
 
 // adds the price of the product to the cart total
 function addItemToCart(price, productSize){
-    subtotal += price;
     taxed = Number(subtotal * 1.06);
     alert(productSize + " Shirt Added (Costs $" + price + ") - Total $" + taxed.toFixed(2));
 }
 
+//----------------------------- HTML FORMATTING -----------------------------//
 // creates the table and dropdown menu based from dictionary
 function addSelectOptions(){
     // sizes and availability table
@@ -140,4 +145,50 @@ function updatePriceText(){
         }
     }
     document.getElementById("price-txt").innerHTML = "$" + price;
+}
+
+// show and hide cart popup table
+const cartImage = document.getElementById("cart");
+const cartPopup = document.getElementById("cart-popup");
+
+cartImage.addEventListener('mouseover', () => {
+    cartPopup.style.display = 'block';
+});
+
+cartImage.addEventListener('mouseout', () => {
+    cartPopup.style.display = 'none';
+});
+
+// populate table with localStorage data
+function populateCartTable(){
+    let cartPopupTable = document.getElementById("cart-popup-table");
+
+    // if there are no items in the cart, show "No items in cart", else populate
+    if (shoppingCartItems.length == 0){
+            cartPopupTable.innerHTML = 
+            `
+            <tr>
+                <td style="border: none; font-weight: bold;">No items in cart</td>
+            </tr>
+            `
+    } else {
+        cartPopupTable.innerHTML = 
+            `
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+            </tr>
+            `
+            
+        for (let i = 0; i < shoppingCartItems.length; i++){
+            console.log(shoppingCartItems[i]['letter'], shoppingCartItems[i]['price']);
+            cartPopupTable.innerHTML +=
+                `
+                <tr>
+                    <td>${shoppingCartItems[i]['letter']}</td>
+                    <td>${shoppingCartItems[i]['price']}</td>
+                </tr>
+                `
+        }
+    };
 }
