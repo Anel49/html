@@ -1,15 +1,16 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #F0F0F0;
-    margin: 0 auto;
-    width: 45%;
-    margin-bottom: 20px;
 }
-div {
+#main-content {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     border: 5px solid #E9E9E9;
+    
+    margin: 0 auto;
+    width: 45%;
+    margin-bottom: 20px;
 }
 h1 {
     text-align: center;
@@ -17,6 +18,8 @@ h1 {
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-bottom: 18px;
+    table-layout: fixed;
 }
 th {
     background-color: #F0F0F0;
@@ -35,13 +38,28 @@ footer {
     text-align: center;
     color: #646464;
 }
+.middle {
+    display: block;
+    margin: 0 auto;
+}
+.field {
+    border: none;
+    padding: 9px;
+    border-radius: 5px;
+}
 #add-to-cart-btn {
     background-color: #007AFE;
     color: white;
+    width: 100px;
+    cursor: pointer;
+}
+.select {
+    background-color: #F0F0F0;
     padding: 9px;
     border-radius: 5px;
-    width: 100px;
-    border: none;
-    display: block;
-    margin: 0 auto;
+    margin-bottom: 18px;
+}
+#cart {
+    width: 2%;
+    float: right;
 }
